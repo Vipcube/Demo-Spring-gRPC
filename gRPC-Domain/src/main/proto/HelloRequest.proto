@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package grpc;
+
+option java_multiple_files = true;
+option java_package = "org.vipcube.spring.grpc.core";
+option java_outer_classname = "HelloWorldServiceProto";
+
+service HelloService {
+  rpc SayHello (HelloRequest) returns (HelloReply) {
+  }
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}
