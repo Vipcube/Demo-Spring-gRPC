@@ -1,6 +1,7 @@
 package org.vipcube.spring.grpc.client.controller;
 
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,7 +18,13 @@ public class HelloController {
 	}
 
 	@GetMapping( value = "/hello", produces = MediaType.TEXT_PLAIN_VALUE )
-	public String sayHello( @RequestParam( defaultValue = "Tom" ) String name ){
-		return this.helloGrpcClientService.sayHello( name );
+	public ResponseEntity<?> sayHello( @RequestParam( defaultValue = "Tom" ) String name ){
+		return ResponseEntity.ok( this.helloGrpcClientService.sayHello( name ) );
+	}
+
+	@GetMapping( value = "/keep-hello", produces = MediaType.TEXT_PLAIN_VALUE )
+	public ResponseEntity<?> keepSayHello( @RequestParam( defaultValue = "Tom" ) String name ){
+		this.helloGrpcClientService.keepSayHello( name );
+		return ResponseEntity.ok().build();
 	}
 }
