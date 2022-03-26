@@ -9,6 +9,9 @@ option java_outer_classname = "HelloWorldServiceProto";
 service HelloService {
   rpc SayHello (HelloRequest) returns (HelloReply) {
   }
+
+  rpc KeepSayHello (HelloRequest) returns (stream HelloReply) {
+  }
 }
 
 message HelloRequest {
