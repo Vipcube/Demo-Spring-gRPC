@@ -1,6 +1,16 @@
 server:
-  port: 18080
+  port: 8080
+
+grpc:
+  server:
+    port: 9090
 
 spring:
   application:
     name: grpc-server
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
