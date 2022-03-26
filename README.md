@@ -22,3 +22,9 @@ There modules show as below:
 ```shell
 curl --location --request GET 'http://localhost:8081/api/hello?name=Tim'
 ```
+
+- Test `Streaming` type gRPC with send HTTP to client endpoint:
+
+```shell
+curl --location --request GET 'http://localhost:8081/api/keep-hello?name=Tim'
+```
